@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named Observer
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+Observer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Observer
+.PHONY : Observer
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+Observer/fast:
+	$(MAKE) -f CMakeFiles/Observer.dir/build.make CMakeFiles/Observer.dir/build
+.PHONY : Observer/fast
 
 #=============================================================================
 # Target rules for targets named Watched
@@ -137,17 +137,43 @@ Watched/fast:
 .PHONY : Watched/fast
 
 #=============================================================================
-# Target rules for targets named Observer
+# Target rules for targets named main
 
 # Build rule for target.
-Observer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Observer
-.PHONY : Observer
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-Observer/fast:
-	$(MAKE) -f CMakeFiles/Observer.dir/build.make CMakeFiles/Observer.dir/build
-.PHONY : Observer/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+#=============================================================================
+# Target rules for targets named googletest
+
+# Build rule for target.
+googletest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 googletest
+.PHONY : googletest
+
+# fast build rule for target.
+googletest/fast:
+	$(MAKE) -f CMakeFiles/googletest.dir/build.make CMakeFiles/googletest.dir/build
+.PHONY : googletest/fast
+
+#=============================================================================
+# Target rules for targets named watched_test
+
+# Build rule for target.
+watched_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 watched_test
+.PHONY : watched_test
+
+# fast build rule for target.
+watched_test/fast:
+	$(MAKE) -f CMakeFiles/watched_test.dir/build.make CMakeFiles/watched_test.dir/build
+.PHONY : watched_test/fast
 
 Observer.o: Observer.cpp.o
 
@@ -230,6 +256,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test/watched_test.o: test/watched_test.cpp.o
+
+.PHONY : test/watched_test.o
+
+# target to build an object file
+test/watched_test.cpp.o:
+	$(MAKE) -f CMakeFiles/watched_test.dir/build.make CMakeFiles/watched_test.dir/test/watched_test.cpp.o
+.PHONY : test/watched_test.cpp.o
+
+test/watched_test.i: test/watched_test.cpp.i
+
+.PHONY : test/watched_test.i
+
+# target to preprocess a source file
+test/watched_test.cpp.i:
+	$(MAKE) -f CMakeFiles/watched_test.dir/build.make CMakeFiles/watched_test.dir/test/watched_test.cpp.i
+.PHONY : test/watched_test.cpp.i
+
+test/watched_test.s: test/watched_test.cpp.s
+
+.PHONY : test/watched_test.s
+
+# target to generate assembly for a file
+test/watched_test.cpp.s:
+	$(MAKE) -f CMakeFiles/watched_test.dir/build.make CMakeFiles/watched_test.dir/test/watched_test.cpp.s
+.PHONY : test/watched_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,10 +290,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... main"
-	@echo "... Watched"
 	@echo "... Observer"
+	@echo "... Watched"
+	@echo "... main"
+	@echo "... edit_cache"
+	@echo "... googletest"
+	@echo "... watched_test"
 	@echo "... Observer.o"
 	@echo "... Observer.i"
 	@echo "... Observer.s"
@@ -250,6 +305,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test/watched_test.o"
+	@echo "... test/watched_test.i"
+	@echo "... test/watched_test.s"
 .PHONY : help
 
 

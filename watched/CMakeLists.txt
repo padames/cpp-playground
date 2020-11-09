@@ -16,7 +16,7 @@ ExternalProject_Add(googletest
     PREFIX "${CMAKE_BINARY_DIR}/lib"
     GIT_REPOSITORY "https://github.com/google/googletest.git"
     GIT_TAG "master"
-    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/lib/installed
+    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/../lib/installed
 )
 # Prevent build on all targets build
 set_target_properties(googletest PROPERTIES EXCLUDE_FROM_ALL TRUE)
@@ -25,8 +25,8 @@ set_target_properties(googletest PROPERTIES EXCLUDE_FROM_ALL TRUE)
 include(GNUInstallDirs)
 
 # Specify where third-party libraries are located
-link_directories(${CMAKE_BINARY_DIR}/lib/installed/${CMAKE_INSTALL_LIBDIR})
-include_directories(${CMAKE_BINARY_DIR}/lib/installed/${CMAKE_INSTALL_INCLUDEDIR})
+link_directories(${CMAKE_BINARY_DIR}/../lib/installed/${CMAKE_INSTALL_LIBDIR})
+include_directories(${CMAKE_BINARY_DIR}/../lib/installed/${CMAKE_INSTALL_INCLUDEDIR})
 
 # This is required for googletest
 find_package(Threads REQUIRED)
