@@ -44,6 +44,8 @@ if(CMAKE_VERSION VERSION_LESS 2.8.11)
     )
 endif()
 
+# Prevent build on all targets build
+set_target_properties(googletest PROPERTIES EXCLUDE_FROM_ALL TRUE)
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(watched_test test/watched_test.cpp)
