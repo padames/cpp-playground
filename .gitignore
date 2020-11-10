@@ -31,5 +31,9 @@
 *.out
 *.app
 
+# folders
+watched/Testing
+
 # CMake
 watched/build
+
