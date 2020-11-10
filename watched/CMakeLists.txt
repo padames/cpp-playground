@@ -1,15 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 
-# set the project name
-project(watched-and-observed)
-
-#Other compilation units required
-add_library(Watched Watched.cpp)
-add_library(Observer Observer.cpp)
-
-add_executable(main main.cpp)
-target_link_libraries(main Watched Observer)
-
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -46,6 +36,19 @@ endif()
 
 # Prevent build on all targets build
 set_target_properties(googletest PROPERTIES EXCLUDE_FROM_ALL TRUE)
+
+
+# set the project name
+project(watched-and-observed)
+
+#Other compilation units required
+add_library(Watched Watched.cpp)
+add_library(Observer Observer.cpp)
+
+add_executable(main main.cpp)
+target_link_libraries(main Watched Observer)
+
+
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(watched_test test/watched_test.cpp)
