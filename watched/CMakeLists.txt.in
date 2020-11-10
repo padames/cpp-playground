@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.9)
 
 # no version, this is to force a download at CMake configuration time
 project(googletest-download NONE)
