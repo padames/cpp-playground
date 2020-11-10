@@ -161,11 +161,10 @@ function(download_project)
     configure_file("${_DownloadProjectDir}/DownloadProject.CMakeLists.cmake.in"
                    "${DL_ARGS_DOWNLOAD_DIR}/CMakeLists.txt")
     execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}"
-                        -D "CMAKE_MAKE_PROGRAM:FILE=${CMAKE_MAKE_PROGRAM}"
-                        .
+                    .
+                    WORKING_DIRECTORY "${DL_ARGS_DOWNLOAD_DIR}"
                     RESULT_VARIABLE result
                     ${OUTPUT_QUIET}
-                    WORKING_DIRECTORY "${DL_ARGS_DOWNLOAD_DIR}"
     )
     if(result)
         message(FATAL_ERROR "CMake step for ${DL_ARGS_PROJ} failed: ${result}")
