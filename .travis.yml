@@ -8,7 +8,9 @@ os:
 language: cpp
 
 before_script:
-  - cd watched/build
+  - cd watched
+  - mkdir build
+  - cd build
   - cmake ..
 
 script:
