@@ -1,3 +1,4 @@
+# CMakeLists.txt
 cmake_minimum_required(VERSION 2.8.2)
 
 project(watched-and-observed)
@@ -10,15 +11,16 @@ else()
     set(UPDATE_DISCONNECTED_IF_AVAILABLE "UPDATE_DISCONNECTED 1")
 endif()
 
-include(GNUInstallDirs)
-find_package(Threads REQUIRED)
-
 include(DownloadProject.cmake)
 download_project(PROJ                googletest
                  GIT_REPOSITORY      https://github.com/google/googletest.git
                  GIT_TAG             master
                  ${UPDATE_DISCONNECTED_IF_AVAILABLE}
 )
+
+# Prevent GoogleTest from overriding our compiler/linker options
+# when building with Visual Studio
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
 
@@ -31,16 +33,19 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
                         "${gmock_SOURCE_DIR}/include")
 endif()
 
-
-#Other compilation units required
+# configure the required compilation units
 add_library(Watched Watched.cpp)
 add_library(Observer Observer.cpp)
 
 add_executable(main main.cpp)
+
 target_link_libraries(main Watched Observer)
 
-
-
-# Now simply link against gtest or gtest_main as needed. Eg
+# tests
 add_executable(watched_test test/watched_test.cpp)
 target_link_libraries(watched_test Watched gtest)
+add_test(NAME test_one COMMAND watched_test)
+
+set_target_properties(watched_test PROPERTIES EXCLUDE_FROM_ALL TRUE)
+
+

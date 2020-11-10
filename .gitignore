@@ -32,11 +32,4 @@
 *.app
 
 # CMake
-CMakeFiles/
-CMakeCache.*
-cmake_install*
-
-# Additional libraries
-watched/build/lib/*
-watched/build/*_test
-watched/lib
+watched/build
