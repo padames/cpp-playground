@@ -9,8 +9,8 @@ using namespace std;
 
 class Observer {
 	string _name;
-	list<shared_ptr<Watched>> _watched_list;
-	list<shared_ptr<Watched>>::iterator _iter;
+	list< shared_ptr< Watched> > _watched_list;
+	list< shared_ptr< Watched> >::iterator _iter;
 public:
 	Observer(const string&);
 	const string& name();
