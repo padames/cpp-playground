@@ -4,6 +4,7 @@ dist: bionic
 
 os:
   - linux
+  - osx
 
 language: cpp
 
