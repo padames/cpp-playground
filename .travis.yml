@@ -2,10 +2,10 @@ matrix:
   include:
     - os: osx
       compiler: gcc
-      env: BUILD_TYPE=Release VERBOSE=1 CXX_FLAGS="-std=c++11 -Wdeprecated" HOMEBREW_LOGS=~/homebrew-logs HOMEBREW_TEMP=~/homebrew-temp
+      env: BUILD_TYPE=Release VERBOSE=1 --enable-cxx CXX_FLAGS="-std=c++11 -Wdeprecated" HOMEBREW_LOGS=~/homebrew-logs HOMEBREW_TEMP=~/homebrew-temp
     - os: osx
       compiler: clang
-      env: BUILD_TYPE=Release VERBOSE=1 CXX_FLAGS="-std=c++11 -Wdeprecated" HOMEBREW_LOGS=~/homebrew-logs HOMEBREW_TEMP=~/homebrew-temp
+      env: BUILD_TYPE=Release VERBOSE=1 --enable-cxx CXX_FLAGS="-std=c++11 -Wdeprecated" HOMEBREW_LOGS=~/homebrew-logs HOMEBREW_TEMP=~/homebrew-temp
 #    - os: osx
 #      osx_image: xcode8
 #      env:
@@ -25,6 +25,8 @@ before_install:
 language: cpp
 
 before_script:
+  - /opt/local/bin/port install gcc_select
+  - sudo port select --set gcc mp-gcc49
   - cd watched
   - mkdir build
   - cd build
