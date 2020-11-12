@@ -25,7 +25,6 @@ before_install:
 language: cpp
 
 before_script:
-  - 
   - /opt/local/bin/port install gcc_select
   - sudo port select --set gcc mp-gcc49
   - cd watched
