@@ -30,6 +30,6 @@ addons:
   homebrew:
     packages:
     - ccache
-    - gcc@7.5
+    - gcc@4.8
     - llvm@4
     update: true
