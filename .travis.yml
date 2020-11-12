@@ -37,15 +37,18 @@ after_script:
   - cmake --build . --target watched_test
 
 # This section installs the necessary dependencies.
-#addons:
-#  apt:
-#    packages:
-#    - g++
-#    - clang
-#    update: true
-#  homebrew:
-#    packages:
-#   - ccache
-#   - gcc@7.0
-#  - llvm@8
-#  update: true
+addons:
+  apt:
+    packages:
+    - g++
+    - clang
+    update: true
+  homebrew:
+    packages:
+    - ccache
+    - gcc@4.9
+    - llvm@4
+    update: true
+
+notifications:
+  email: false
