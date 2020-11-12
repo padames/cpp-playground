@@ -4,7 +4,7 @@
 #include "../Watched.h"
 
 TEST(watchedName, returnsItsName) {
-  const string& a_name = "The Great Escape";
+  const std::string& a_name = "The Great Escape";
   std::shared_ptr<Watched> w(new Watched(a_name));
   EXPECT_EQ(w->name(), a_name);
 }
