@@ -32,11 +32,11 @@ after_script:
 
 # This section installs the necessary dependencies.
 addons:
-#  apt:
-#    packages:
-#    - g++
-#    - clang
-#    update: true
+  apt:
+    packages:
+    - g++
+    - clang
+    update: true
   homebrew:
     packages:
    - ccache
