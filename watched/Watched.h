@@ -4,13 +4,11 @@
 
 #include <string>
 
-using namespace std;
-
 class Watched {
-	string _name;
+	std::string _name;
 public:
-	Watched(const string& name);
-	const string& name();
+	Watched(const std::string& name);
+	const std::string& name();
 };
 
 #endif //WATCHED_H
