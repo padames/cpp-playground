@@ -5,17 +5,15 @@
 
 class Watched; // forward declaration
 
-using namespace std;
-
 class Observer {
-	string _name;
-	list< shared_ptr< Watched> > _watched_list;
-	list< shared_ptr< Watched> >::iterator _iter;
+	std::string _name;
+	std::list< std::shared_ptr< Watched> > _watched_list;
+	std::list< std::shared_ptr< Watched> >::iterator _iter;
 public:
-	Observer(const string&);
-	const string& name();
-	void watch(shared_ptr<Watched> w);
-	bool isWatching(shared_ptr<Watched> w);
-	void unwatch(shared_ptr<Watched> w);
+	Observer(const std::string&);
+	const std::string& name();
+	void watch(std::shared_ptr<Watched> w);
+	bool isWatching(std::shared_ptr<Watched> w);
+	void unwatch(std::shared_ptr<Watched> w);
 	void printWatched();
 };
