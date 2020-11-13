@@ -7,7 +7,6 @@ matrix:
 #        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
     - os: osx
       compiler: clang
-      osx_image: xcode8
       env: BUILD_TYPE=Release VERBOSE=1 --enable-cxx CXX_FLAGS="-std=c++11 -Wdeprecated" HOMEBREW_LOGS=~/homebrew-logs HOMEBREW_TEMP=~/homebrew-temp
 
 #    - os: osx
