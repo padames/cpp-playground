@@ -35,6 +35,7 @@ before_script:
 
 script:
   - cmake --build .
+  ./main
 
 after_script:
   - cmake --build . --target watched_test
